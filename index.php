@@ -1,3 +1,7 @@
+<?php 
+    require('dados.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,95 +42,24 @@
         </form>
 
         <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
-            <div class="p-2 border-stone-800 border-2 bg-stone-900 rounded">
-                <div class="flex">
-                    <div class="w-1/3">imagem</div>
-                    <div>
-                        <a href="/livro.php?" class="font-semibold hover:underline">titulo</a>
-                        <p class="text-sm italic">Author</p>
-                        <div class="text-sm italic">(3 avaliações)</div>
-                    </div>
-                </div>
-
-                <div class="text-sm">
-                    description
-                </div>
-            </div>
+            <?php foreach($livros as $livro): ?>
 
             <div class="p-2 border-stone-800 border-2 bg-stone-900 rounded">
                 <div class="flex">
                     <div class="w-1/3">imagem</div>
-                    <div>
-                        <a href="/livro.php?" class="font-semibold hover:underline">titulo</a>
-                        <p class="text-sm italic">Author</p>
+                    <div class="space-y-1">
+                        <a href="/livro.php?id=<?=$livro['id']?>" class="font-semibold hover:underline"><?=$livro['title']?></a>
+                        <p class="text-sm italic"><?=$livro['author']?></p>
                         <div class="text-sm italic">(3 avaliações)</div>
                     </div>
                 </div>
 
-                <div class="text-sm">
-                    description
+                <div class="text-sm mt-2">
+                    <?=$livro['description']?>
                 </div>
             </div>
 
-            <div class="p-2 border-stone-800 border-2 bg-stone-900 rounded">
-                <div class="flex">
-                    <div class="w-1/3">imagem</div>
-                    <div>
-                        <a href="/livro.php?" class="font-semibold hover:underline">titulo</a>
-                        <p class="text-sm italic">Author</p>
-                        <div class="text-sm italic">(3 avaliações)</div>
-                    </div>
-                </div>
-
-                <div class="text-sm">
-                    description
-                </div>
-            </div>
-
-            <div class="p-2 border-stone-800 border-2 bg-stone-900 rounded">
-                <div class="flex">
-                    <div class="w-1/3">imagem</div>
-                    <div>
-                        <a href="/livro.php?" class="font-semibold hover:underline">titulo</a>
-                        <p class="text-sm italic">Author</p>
-                        <div class="text-sm italic">(3 avaliações)</div>
-                    </div>
-                </div>
-
-                <div class="text-sm">
-                    description
-                </div>
-            </div>
-
-            <div class="p-2 border-stone-800 border-2 bg-stone-900 rounded">
-                <div class="flex">
-                    <div class="w-1/3">imagem</div>
-                    <div>
-                        <a href="/livro.php?" class="font-semibold hover:underline">titulo</a>
-                        <p class="text-sm italic">Author</p>
-                        <div class="text-sm italic">(3 avaliações)</div>
-                    </div>
-                </div>
-
-                <div class="text-sm">
-                    description
-                </div>
-            </div>
-
-            <div class="p-2 border-stone-800 border-2 bg-stone-900 rounded">
-                <div class="flex">
-                    <div class="w-1/3">imagem</div>
-                    <div>
-                        <a href="/livro.php?" class="font-semibold hover:underline">titulo</a>  
-                        <p class="text-sm italic">Author</p>
-                        <div class="text-sm italic">(3 avaliações)</div>
-                    </div>
-                </div>
-
-                <div class="text-sm">
-                    description
-                </div>
-            </div>
+            <?php endforeach; ?>
         </section>
     </main>
 </body>
