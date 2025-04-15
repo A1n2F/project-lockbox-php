@@ -4,7 +4,7 @@
 
     if (!$controller) $controller = 'index';
 
-    if (!file_exists('controllers/{$controller}.controller.php')){
+    if (!file_exists("controllers/{$controller}.controller.php")){
         abort(404);
     }
 
