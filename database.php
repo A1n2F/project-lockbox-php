@@ -7,10 +7,13 @@
             $this->db = new PDO('sqlite:database.sqlite');
         }
 
-        public function livros() {
-            $query = $this->db->query("SELECT * FROM livros");
-
-            $items =  $query->fetchAll();
+        public function livros($pesquisa = null) {
+            $prepare = $this->db->prepare("SELECT * FROM livros WHERE title LIKE :pesquisa");
+            $prepare->bindValue(':pesquisa', "%$pesquisa%");
+            $prepare->execute();
+            
+            
+            $items =  $prepare->fetchAll();
 
             // $retorno = [];
 
