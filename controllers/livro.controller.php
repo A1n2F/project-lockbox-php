@@ -1,13 +1,11 @@
 <?php 
-    require 'dados.php';
 
     $id = $_REQUEST['id'];
 
-    $filtrado = array_filter($livros, function($livro) use($id) {
-        return $livro['id'] == $id;
-    });
+    $db = new DB;
+    $livro = $db->livro($id);
 
-    $livro = array_pop($filtrado);
+    require 'dados.php';
 
     view('livro', [
         'livro' => $livro
