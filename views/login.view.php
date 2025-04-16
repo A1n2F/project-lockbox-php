@@ -31,12 +31,12 @@
     <div class="border border-stone-700 rounded">
         <h1 class="border-b border-stone-700 text-stone-400 font-bold px-4 py-2">Registro</h1>
 
-        <form class="p-4 space-y-4">
+        <form class="p-4 space-y-4" method="POST" action="/registrar">
             <div class="flex flex-col">
                 <label class="text-stone-400 mb-2">Nome</label>
                 <input 
                     type="text" 
-                    name="text" required
+                    name="nome" required
                     class="border-stone-800 border-2 rounded-md bg-stone-900 focus:outline-none px-2 py-1"
                 />
             </div>
@@ -77,6 +77,13 @@
             hover:bg-stone-800 transition-colors hover:text-lime-500">
                 Registrar
             </button>
+
+            <?php if(strlen($mensagem) > 0): ?>
+                <div class="border-green-800 bg-green-900 text-green-400 px-4 py-2 rounded-md">
+                    <?=$mensagem?>
+                </div>
+
+            <?php endif; ?>
         </form>
     </div>
 </div>
