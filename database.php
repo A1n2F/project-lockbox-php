@@ -10,37 +10,20 @@
         public function livros($pesquisa = null) {
             $prepare = $this->db->prepare("SELECT * FROM livros WHERE title LIKE :pesquisa");
             $prepare->bindValue(':pesquisa', "%$pesquisa%");
+            $prepare->setFetchMode(PDO::FETCH_CLASS, Livro::class);
             $prepare->execute();
             
-            
-            $items =  $prepare->fetchAll();
-
-            // $retorno = [];
-
-            // foreach($items as $item) {
-            //     $retorno[] = Livro::make($item);
-            // }
-
-            // return $retorno;
-            return array_map(fn($item) => Livro::make($item), $items);
+            return $prepare->fetchAll();
         }
 
         public function livro($id) {
-            $sql = "SELECT * FROM livros";
 
-            $query = $this->db->query($sql);
-
-            $items =  $query->fetchAll();
-
-            // $retorno = [];
-
-            // foreach($items as $item) {
-            //     $retorno[] = Livro::make($item);
-            // }
-
-            // return $retorno[0];
-
-            return array_map(fn($item) => Livro::make($item), $items)[0];
+            $prepare = $this->db->prepare("SELECT * FROM livros WHERE id = :id");
+            $prepare->bindValue('id', $id);
+            $prepare->setFetchMode(PDO::FETCH_CLASS, Livro::class);
+            $prepare->execute();
+            
+            return $prepare->fetch();
         }
     }
 ?>
