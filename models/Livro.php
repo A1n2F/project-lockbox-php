@@ -4,6 +4,5 @@
         public $title;
         public $author;
         public $description;
-        public $img;
     }
 ?>

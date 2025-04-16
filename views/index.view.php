@@ -17,7 +17,8 @@
 <div class="p-2 border-stone-800 border-2 bg-stone-900 rounded">
     <div class="flex">
         <div class="w-1/3">
-            <image src="img/<?=$livro->img ?>" alt="" class="w-40 h-50" />
+            <!-- <image src="" alt="" class="w-40 h-50" /> -->
+             imagem
         </div>
         <div class="space-y-1 ml-2">
             <a href="/livro?id=<?=$livro->id ?>" class="font-semibold hover:underline"><?=$livro->title ?></a>
