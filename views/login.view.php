@@ -2,12 +2,12 @@
     <div class="border border-stone-700 rounded">
         <h1 class="border-b border-stone-700 text-stone-400 font-bold px-4 py-2">Login</h1>
 
-        <form class="p-4 space-y-4">
+        <form class="p-4 space-y-4" method="POST">
             <div class="flex flex-col">
                 <label class="text-stone-400 mb-2">Email</label>
                 <input 
                     type="email" 
-                    name="email" required
+                    name="email" 
                     class="border-stone-800 border-2 rounded-md bg-stone-900 focus:outline-none px-2 py-1"
                 />
             </div>
@@ -16,7 +16,7 @@
                 <label class="text-stone-400 mb-2">Senha</label>
                 <input 
                     type="password" 
-                    name="senha" required
+                    name="senha" 
                     class="border-stone-800 border-2 rounded-md bg-stone-900 focus:outline-none px-2 py-1"
                 />
             </div>
