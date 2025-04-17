@@ -1,7 +1,23 @@
 <?php
     
+    require 'Validacao.php';
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
+        $validacao = Validacao::validar([
+            'nome' => ['required'],
+            'email' => ['required', 'email', 'confirmed'],
+        ], $_POST);
+
+        if($validacao->naoPassou()) {
+            $_SESSION['validacoes'] = $validacao->validacoes;
+
+            header('location: /login');
+            
+            exit();
+        }
+
         $validacoes = [];
 
         $nome = $_POST['nome'];
