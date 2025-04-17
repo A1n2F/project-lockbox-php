@@ -32,7 +32,7 @@
     
     <main class="mx-auto max-w-screen-xl">
         <?php if($mensagem = flash()->get('mensagem')): ?>
-            <div class="border-green-800 bg-green-900 text-green-400 px-4 py-2 rounded-md text-center">
+            <div class="border-green-800 bg-green-900 text-green-400 font-bold px-4 py-2 rounded-md text-center">
                 <?=$mensagem?>
             </div>
         <?php endif; ?>
