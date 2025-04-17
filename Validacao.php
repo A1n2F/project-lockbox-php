@@ -26,9 +26,15 @@
             return $validacao;
         }
 
-        private function required($campo, $valor) {
+        private function nome($campo, $valor) {
             if(strlen($valor) == 0) {
                 $this->validacoes [] = "O $campo é obrigatório.";
+            }
+        }
+
+        private function senha($campo, $valor) {
+            if(strlen($valor) == 0) {
+                $this->validacoes [] = "A $campo é obrigatória.";
             }
         }
 
@@ -46,24 +52,30 @@
 
         private function min($min, $campo, $valor) {
             if(strlen($valor) <= $min) {
-                $this->validacoes [] = "O $campo precisa ter no mínimo $min caracteres.";
+                $this->validacoes [] = "A $campo precisa ter no mínimo $min caracteres.";
             }
         }
 
         private function max($max, $campo, $valor) {
             if(strlen($valor) > $max) {
-                $this->validacoes [] = "O $campo precisa ter no mínimo $max caracteres.";
+                $this->validacoes [] = "A $campo precisa ter no mínimo $max caracteres.";
             }
         }
 
         private function strong($campo, $valor) {
             if(!strpbrk($valor, '!@#$%¨&*()_-+=;:<>/\|[]{}^~,.?')) {
-                $this->validacoes [] = "O $campo precisa ter um caracter especial nela.";
+                $this->validacoes [] = "A $campo precisa ter um caracter especial nela.";
             }
         }
 
-        public function naoPassou() {
-            $_SESSION['validacoes'] = $this->validacoes;
+        public function naoPassou($nomeCustomizado = null) {
+            $chave = 'validacoes';
+            if($nomeCustomizado) {
+                $chave .= '_'. $nomeCustomizado;
+            }
+
+            flash()->push($chave, $this->validacoes);
+
             return sizeof($this->validacoes) > 0;
         }
     }

@@ -25,6 +25,19 @@
             hover:bg-stone-800 transition-colors hover:text-lime-500">
                 Logar
             </button>
+
+            <?php if($validacoes = flash()->get('validacoes_login')): ?>
+                <div class="border-red-800 bg-red-900 text-red-400 px-4 py-2 rounded-md font-bold">
+
+                    <ul>
+                        <?php foreach($validacoes as $validacao): ?>
+                            <li><?=$validacao?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                    
+                </div>
+
+            <?php endif; ?>
         </form>
     </div>
 
@@ -78,18 +91,11 @@
                 Registrar
             </button>
 
-            <?php if(isset($mensagem) && strlen($mensagem)): ?>
-                <div class="border-green-800 bg-green-900 text-green-400 px-4 py-2 rounded-md">
-                    <?=$mensagem?>
-                </div>
-
-            <?php endif; ?>
-
-            <?php if(isset($_SESSION['validacoes']) && sizeof($_SESSION['validacoes'])): ?>
+            <?php if($validacoes = flash()->get('validacoes_registrar')): ?>
                 <div class="border-red-800 bg-red-900 text-red-400 px-4 py-2 rounded-md font-bold">
 
                     <ul>
-                        <?php foreach($_SESSION['validacoes'] as $validacao): ?>
+                        <?php foreach($validacoes as $validacao): ?>
                             <li><?=$validacao?></li>
                         <?php endforeach; ?>
                     </ul>
