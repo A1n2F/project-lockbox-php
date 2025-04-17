@@ -7,8 +7,8 @@
         $senha = $_POST['senha'];
 
         $validacao = Validacao::validar([
-            'email' => ['nome', 'email'],
-            'senha' => ['senha']
+            'email' => ['required', 'email'],
+            'senha' => ['required']
         ], $_POST);
 
         if($validacao->naoPassou('login')) {

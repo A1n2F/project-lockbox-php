@@ -5,9 +5,9 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $validacao = Validacao::validar([
-            'nome' => ['nome'],
-            'email' => ['email', 'confirmed'],
-            'senha' => ['senha', 'min:8', 'max:30', 'strong']
+            'nome' => ['required'],
+            'email' => ['required', 'email', 'confirmed', 'unique:usuarios'],
+            'senha' => ['required', 'min:8', 'max:30', 'strong']
         ], $_POST);
 
         if($validacao->naoPassou('registrar')) {

@@ -26,17 +26,34 @@
             return $validacao;
         }
 
-        private function nome($campo, $valor) {
+        private function unique($tabela, $campo, $valor) {
+            if(strlen($valor) == 0) {
+                return;
+            }
+
+            $db = new Database(config('database')); 
+
+            $resultado = $db->query(
+                query: "SELECT * FROM $tabela WHERE $campo = :valor",
+                params: ['valor' => $valor]
+            )->fetch();
+
+            if($resultado) {
+                $this->validacoes [] = "O $campo já está sendo usado.";
+            }
+        }
+
+        private function required($campo, $valor) {
             if(strlen($valor) == 0) {
                 $this->validacoes [] = "O $campo é obrigatório.";
             }
         }
 
-        private function senha($campo, $valor) {
-            if(strlen($valor) == 0) {
-                $this->validacoes [] = "A $campo é obrigatória.";
-            }
-        }
+        // private function senha($campo, $valor) {
+        //     if(strlen($valor) == 0) {
+        //         $this->validacoes [] = "A $campo é obrigatória.";
+        //     }
+        // }
 
         private function email($campo, $valor) {
             if(!filter_var($valor, FILTER_VALIDATE_EMAIL)) {

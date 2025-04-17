@@ -6,7 +6,7 @@
     session_start();
 
     require "Flash.php";
-
+    
     require 'functions.php';
 
     $config = require 'config.php';
