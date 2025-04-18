@@ -1,8 +1,7 @@
-<div class="p-2 border-stone-800 border-2 bg-stone-900 rounded my-6">
+<div class="p-2 border-stone-800 border-2 bg-stone-900 rounded mt-6">
     <div class="flex">
         <div class="w-1/3">
-            <!-- <image src="" alt="" class="w-60 h-90" /> -->
-             imagem
+            <img src="<?=$livro->imagem ?>" alt="" class="w-60 rounded" />
         </div>
         <div class="space-y-6 ml-2">
             <a href="/livro?id=<?=$livro->id ?>" class="text-xl font-semibold hover:underline"><?=$livro->title ?></a>

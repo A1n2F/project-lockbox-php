@@ -11,7 +11,7 @@
     <div class="border border-stone-700 rounded">
         <h1 class="border-b border-stone-700 text-stone-400 font-bold px-4 py-2">Cadastre um novo Livro!</h1>
 
-        <form class="p-4 space-y-4" method="post" action="/livro-criar">
+        <form class="p-4 space-y-4" method="post" action="/livro-criar" enctype="multipart/form-data">
             <div class="flex flex-col">
                 <label class="text-stone-400 mb-2">Título</label>
                 <input type="text" name="title" class="border-stone-800 border-2 rounded-md bg-stone-900 focus:outline-none px-2 py-1" />
@@ -33,8 +33,12 @@
                     <?php foreach(range(1800, date('Y')) as $ano): ?>
                         <option value="<?=$ano?>"><?=$ano?></option>
                     <?php endforeach; ?>
-
                 </select>
+            </div>
+
+            <div class="flex flex-col">
+                <label class="text-stone-400 mb-2">Imagem</label>
+                <input type="file" name="imagem" class="border-stone-800 border-2 rounded-md bg-stone-900 focus:outline-none px-2 py-1" />
             </div>
 
             <button type="submit" class="border-stone-800 bg-stone-900 text-stone-400 px-4 py-2 rounded-md cursor-pointer

@@ -8,6 +8,7 @@
         public $ano_de_lancamento;
         public $nota_avaliacao;
         public $count_avaliacoes;
+        public $imagem;
 
         public function query($where, $params) {
             $database = new Database(config('database')); 
@@ -19,6 +20,7 @@
                     l.author,
                     l.description,
                     l.ano_de_lancamento,
+                    l.imagem,
                     ifnull(round(sum(a.nota) / 5), 0) as nota_avaliacao,
                     ifnull(count(a.id), 0) as count_avaliacoes
                     FROM
@@ -31,7 +33,8 @@
                     l.title,
                     l.author,
                     l.description,
-                    l.ano_de_lancamento",
+                    l.ano_de_lancamento,
+                    l.imagem",
                 self::class, 
                 $params);
         }

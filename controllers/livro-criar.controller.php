@@ -30,10 +30,15 @@ require 'Validacao.php';
         exit();
     }
 
+    $novoNome = md5(rand());
+    $extensao = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
+    $imagem = "images/$novoNome.$extensao";
+    move_uploaded_file($_FILES['imagem']['tmp_name'], $imagem);
+
     $database->query(
-        "INSERT INTO livros (title, author, description, ano_de_lancamento, usuario_id)
-        VALUES (:title, :author, :description, :ano_de_lancamento, :usuario_id)",
-        params: compact('title', 'author', 'description', 'ano_de_lancamento', 'usuario_id')
+        "INSERT INTO livros (title, author, description, ano_de_lancamento, usuario_id, imagem)
+        VALUES (:title, :author, :description, :ano_de_lancamento, :usuario_id, :imagem)",
+        params: compact('title', 'author', 'description', 'ano_de_lancamento', 'usuario_id', 'imagem')
     );
 
     flash()->push('mensagem', 'Livro cadastrado com sucesso!');
