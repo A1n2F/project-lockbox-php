@@ -31,7 +31,7 @@
 <h2>Avaliações</h2>
 
 <div class="grid grid-cols-4 gap-4 py-6">
-    <div class="col-span-3 gap-4 grid">
+    <div class="col-span-3 gap-4 flex flex-col gap-4">
         
     <?php foreach($avaliacoes as $avaliacao): ?>
         <div class="border border-stone-700 rounded p-2">
