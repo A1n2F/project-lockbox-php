@@ -2,24 +2,9 @@
 
 <div class="grid grid-cols-4 gap-4 my-6">
     <div class="col-span-3 gap-4">
-        <?php foreach($livros as $livro): ?>
-            <div class="p-2 border-stone-800 border-2 bg-stone-900 rounded mb-6">
-                <div class="flex">
-                    <div class="w-1/3">
-                        <!-- <image src="" alt="" class="w-60 h-90" /> -->
-                        imagem
-                    </div>
-            <div class="space-y-6">
-                <a href="/livro?id=<?=$livro->id ?>" class="text-xl font-semibold hover:underline"><?=$livro->title ?></a>
-                <p class="text-sm italic"><?=$livro->author ?></p>
-
-            <div class="mt-2 max-w-7xl">
-                <?=$livro->description ?>
-            </div>
-            </div>
-        </div>
-    </div>
-        <?php endforeach; ?>
+        <?php foreach($livros as $livro) {
+            require 'partials/_livro.php';
+        } ?>
     </div>
 
     <div>

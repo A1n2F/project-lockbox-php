@@ -12,26 +12,8 @@
 
 <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-6">
 
-<?php foreach($livros as $livro): ?>
-
-<div class="p-2 border-stone-800 border-2 bg-stone-900 rounded">
-    <div class="flex">
-        <div class="w-1/3">
-            <!-- <image src="" alt="" class="w-40 h-50" /> -->
-             imagem
-        </div>
-        <div class="space-y-1 ml-2">
-            <a href="/livro?id=<?=$livro->id ?>" class="font-semibold hover:underline"><?=$livro->title ?></a>
-            <p class="text-sm italic"><?=$livro->author ?></p>
-            <div class="text-sm italic">(3 avaliações)</div>
-        </div>
-    </div>
-
-    <div class="text-sm mt-2">
-        <?=$livro->description ?>
-    </div>
-</div>
-
-<?php endforeach; ?>
+<?php foreach($livros as $livro) {
+    require 'partials/_livro.php';
+} ?>
 
 </section>
