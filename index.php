@@ -3,6 +3,8 @@
 
     require 'models/Usuario.php';
 
+    require 'models/Avaliacao.php';
+
     session_start();
 
     require "Flash.php";
