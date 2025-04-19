@@ -1,6 +1,6 @@
 <h1 class="mt-6 font-bold text-lg">Meus Livros</h1>
 
-<div class="grid grid-cols-4 gap-4 my-6">
+<div class="grid grid-cols-4 gap-4 mb-6">
     <div class="col-span-3 gap-4">
         <?php foreach($livros as $livro) {
             require 'partials/_livro.php';
@@ -8,7 +8,7 @@
     </div>
 
     <div>
-    <div class="border border-stone-700 rounded">
+    <div class="border border-stone-700 rounded mt-6">
         <h1 class="border-b border-stone-700 text-stone-400 font-bold px-4 py-2">Cadastre um novo Livro!</h1>
 
         <form class="p-4 space-y-4" method="post" action="/livro-criar" enctype="multipart/form-data">

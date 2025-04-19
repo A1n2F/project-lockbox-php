@@ -24,7 +24,10 @@
 
             <ul>
                 <?php if(auth()): ?>
-                    <li><a href="/logout" class="hover:underline">Oi, <?=auth()->nome?></a></li>
+                    <div class="flex gap-2">
+                        <li><span>Oi, <?=auth()->nome?></span></li>
+                        <li><a href="/logout" class="hover:underline">Sair</a></li>
+                    </div>
                 <?php else: ?>
                     <li><a href="/login" class="hover:underline">Fazer login</a></li>
                 <?php endif; ?>

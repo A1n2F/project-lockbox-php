@@ -10,6 +10,11 @@
             <div class="mt-2 max-w-7xl">
                 <?=$livro->description ?>
             </div>
+
+            <div class="mt-2">
+                Ano de Lançamento: 
+                <?=$livro->ano_de_lancamento ?>
+            </div>
         </div>
     </div>
 </div>

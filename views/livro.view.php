@@ -1,7 +1,7 @@
 <?php require 'partials/_livro.php'; ?>
 
 
-<h2>Avaliações</h2>
+<h2 class="mt-4 text-lg font-bold">Avaliações</h2>
 
 <div class="grid grid-cols-4 gap-4 py-6">
     <div class="col-span-3 gap-4 flex flex-col gap-4">
