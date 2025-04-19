@@ -2,7 +2,7 @@
 
     $livro = Livro::get($_GET['id']);
 
-        require 'dados.php';
+        // require '../dados.php';
 
     $avaliacoes = $database->query(
         "SELECT * FROM avaliacoes WHERE livro_id = :id",
