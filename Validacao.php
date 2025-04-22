@@ -89,7 +89,7 @@
             $this->validacoes[$campo][] = $erro;
         }
 
-        public function naoPassou() {
+        public function naoPassou($nomeCustomizado = null) {
             $chave = 'validacoes';
             if($nomeCustomizado) {
                 $chave .= '_'. $nomeCustomizado;
