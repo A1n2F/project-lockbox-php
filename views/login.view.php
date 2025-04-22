@@ -12,30 +12,38 @@
   <div class="bg-white hero min-h-screen mr-40 text-black">
     <div class="hero-content -mt-10">
       <form method="post" action="/login">
+        <?php $validacoes = flash()->get('validacoes'); ?>
         
         <div class="card">
           <div class="card-body">
 
-          <div class="card-title text-xl mb-2">Faça o seu login</div>
-            <label class="form-control">
+            <div class="card-title text-xl mb-2">Faça o seu login</div>
+            <label class="form-control flex flex-col">
               <div class="label mb-1">
                 <span class="label-text text-black">E-mail</span>
               </div>
-              <input type="text" class="input input-bordered border border-gray-300 w-full max-w-xs bg-white" />
+              <input type="text" name="email" class="input input-bordered border border-gray-300 w-full max-w-xs bg-white" />
+
+              <?php if(isset($validacoes['email'])) : ?>
+                <div class="label text-sm text-error"><?=$validacoes['email'][0]?></div>
+              <?php endif; ?>
             </label>
 
-            <label class="form-control">
+            <label class="form-control flex flex-col">
               <div class="label mb-1">
                 <span class="label-text text-black">Senha</span>
               </div>
-              <input type="password" class="input input-bordered border border-gray-300 w-full max-w-xs bg-white" />
+              <input type="password" name="senha" class="input input-bordered border border-gray-300 w-full max-w-xs bg-white" />
+
+              <?php if(isset($validacoes['senha'])) : ?>
+                <div class="label text-sm text-error"><?=$validacoes['senha'][0]?></div>
+              <?php endif; ?>
             </label>
 
             <div class="card-actions">
               <button class="btn btn-primary btn-block">Login</button>
               <a href="/registrar" class="btn btn-link">Quero me registrar</a>
             </div>
-          </div>
         </div>
 
       </form>

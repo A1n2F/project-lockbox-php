@@ -16,7 +16,7 @@
         <div class="card">
           <div class="card-body">
 
-          <div class="card-title text-xl mb-2">Registrar</div>
+            <div class="card-title text-xl mb-2">Registrar</div>
             <label class="form-control">
               <div class="label mb-1">
                 <span class="label-text text-black">Nome</span>
