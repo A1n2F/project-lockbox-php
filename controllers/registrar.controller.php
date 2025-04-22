@@ -31,4 +31,6 @@
         exit();
     
     }
+
+    view('registrar');
 ?>
