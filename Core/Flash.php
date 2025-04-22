@@ -1,4 +1,7 @@
 <?php
+
+    namespace Core;
+
     class Flash {
         public function push($chave, $valor) {
             $_SESSION["flash_$chave"] = $valor;
