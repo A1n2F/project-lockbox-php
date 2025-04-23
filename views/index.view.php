@@ -1,4 +1,4 @@
-<div class="hero min-h-screen flex mx-auto max-w-screen-lg">
+<div class="hero min-h-screen flex mx-auto max-w-screen-xl">
   <div class="hero-content">
     <div>
       <p class="py-1 text-xl">Bem vindo ao</p>
