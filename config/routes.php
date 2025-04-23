@@ -17,7 +17,7 @@ use App\Controllers\RegisterController;
     ->get('/logout', LogoutController::class)
 
     ->get('/registrar', [ RegisterController::class, 'index' ])
-    ->post('/registrar', [ RegisterController::class, 'registrar' ])
+    ->post('/registrar', [ RegisterController::class, 'register' ])
 
     ->run();
 

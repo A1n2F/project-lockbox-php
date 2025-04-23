@@ -21,28 +21,44 @@
               <div class="label mb-1">
                 <span class="label-text text-black">Nome</span>
               </div>
-              <input type="text" class="input input-bordered border border-gray-300 w-full max-w-xs bg-white" />
+              <input 
+                type="text" 
+                class="input input-bordered border border-gray-300 w-full max-w-xs bg-white" 
+                name="nome"
+                />
             </label>
 
             <label class="form-control">
               <div class="label mb-1">
                 <span class="label-text text-black">E-mail</span>
               </div>
-              <input type="text" class="input input-bordered border border-gray-300 w-full max-w-xs bg-white" />
+              <input 
+                type="text" 
+                class="input input-bordered border border-gray-300 w-full max-w-xs bg-white"
+                name="email" 
+                />
             </label>
 
             <label class="form-control">
               <div class="label mb-1">
                 <span class="label-text text-black">Confirme seu e-mail</span>
               </div>
-              <input type="text" class="input input-bordered border border-gray-300 w-full max-w-xs bg-white" />
+              <input 
+                type="text" 
+                class="input input-bordered border border-gray-300 w-full max-w-xs bg-white" 
+                name="email_confirmacao"
+                />
             </label>
 
             <label class="form-control">
               <div class="label mb-1">
                 <span class="label-text text-black">Senha</span>
               </div>
-              <input type="password" class="input input-bordered border border-gray-300 w-full max-w-xs bg-white" />
+              <input 
+                type="password" 
+                class="input input-bordered border border-gray-300 w-full max-w-xs bg-white" 
+                name="senha"
+                />
             </label>
 
             <div class="card-actions">
