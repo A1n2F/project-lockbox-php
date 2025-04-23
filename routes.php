@@ -17,18 +17,8 @@ use App\Controllers\RegisterController;
     ->get('/logout', LogoutController::class)
 
     ->get('/registrar', [ RegisterController::class, 'index' ])
-    ->post('/registrar', [ RegisterController::class, 'register' ])
+    ->post('/registrar', [ RegisterController::class, 'registrar' ])
 
     ->run();
-
-    // $controller = str_replace('/', '', parse_url($_SERVER['REQUEST_URI'])['path']);
-
-    // if (!$controller) $controller = 'index';
-
-    // if (!file_exists("../controllers/{$controller}.controller.php")){
-    //     abort(404);
-    // }
-
-    // require "../controllers/{$controller}.controller.php";
 
 ?>
