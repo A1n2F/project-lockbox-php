@@ -1,3 +1,5 @@
+<?php $validacoes = flash()->get('validacoes'); ?>
+
 <div class="grid grid-cols-2">
   <div class="hero min-h-screen flex ml-40">
     <div class="hero-content -mt-20">
@@ -46,6 +48,8 @@
                 name="senha" 
                 class="input input-bordered border border-gray-300 w-full max-w-xs bg-white" 
                 />
+
+              <?php require base_path('views/partials/_mensagem.view.php'); ?>
 
               <?php if(isset($validacoes['senha'])) : ?>
                 <div class="label text-sm text-error"><?=$validacoes['senha'][0]?></div>
