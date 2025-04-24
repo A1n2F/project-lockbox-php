@@ -1,13 +1,13 @@
 <?php
-    namespace App\Controllers;
+    namespace App\Controllers\Notas;
 
-    class DashboardController {
+    class IndexController {
         public function __invoke() {
             if(!auth()) {
                 return redirect('/login');
             }
 
-            return view('dashboard', [
+            return view('notas', [
                 'user' => auth()
             ]);
         }
