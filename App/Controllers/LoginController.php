@@ -7,7 +7,7 @@
 
 class LoginController {
     public function index() {
-        return view('login');
+        return view('login', template: 'guest');
     }
 
     public function login() {
@@ -20,7 +20,7 @@ class LoginController {
         ], $_POST);
 
         if($validacao->naoPassou()) {
-            return view('login');
+            return view('login', template: 'guest');
         }
 
         $database = new Database(config('database'));
