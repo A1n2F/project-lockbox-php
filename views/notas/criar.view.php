@@ -8,7 +8,7 @@
             <li><a>Link</a></li>
             <li>
                 <details>
-                <summary><?=$user->nome?></summary>
+                <summary><?=auth()->nome?></summary>
                 <ul class="bg-base-100 rounded-t-none p-2">
                     <li><a href="/logout">Logout</a></li>
                 </ul>
@@ -50,25 +50,26 @@
             <li><a>Item 3</a></li>
         </div>
 
-        <div class="bg-base-200 rounded-r-box w-full p-10 flex flex-col space-y-6">
-            <label class="form-control w-full">
-                <div>
-                    <span class="label-text">Título</span>
-                </div>
-                <input type="text" class="input input-bordered w-full" placeholder="Type here" />
-            </label>
+        <div class="bg-base-200 rounded-r-box w-full p-10">
+           <form action="/notas/criar" method="post" class="flex flex-col space-y-6">
+                <label class="form-control w-full">
+                    <div>
+                        <span class="label-text">Título</span>
+                    </div>
+                    <input type="text" class="input input-bordered w-full" placeholder="Type here" />
+                </label>
 
-            <label class="form-control">
-                <div>
-                    <span class="label-text">Sua nota</span>
-                </div>
-                <textarea class="textarea textarea-bordered h-24 w-full" placeholder="Bio"></textarea>
-            </label>
+                <label class="form-control">
+                    <div>
+                        <span class="label-text">Sua nota</span>
+                    </div>
+                    <textarea class="textarea textarea-bordered h-24 w-full" placeholder="Bio"></textarea>
+                </label>
 
-            <div class="flex items-center justify-between">
-                <button class="btn btn-error">Deletar</button>
-                <button class="btn btn-primary">Atualizar</button>
-            </div>
+                <div class="flex items-center justify-end">
+                    <button class="btn btn-primary">Salvar</button>
+                </div>
+           </form>
         </div>
     </div>
 </div>
