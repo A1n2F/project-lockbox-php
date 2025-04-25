@@ -12,7 +12,7 @@
                 return view('notas/nao-encontrada');
             }
 
-            return view('notas', [
+            return view('notas/index', [
                 'notas' => $notas,
                 'notaSelecionada' => $notaSelecionada
             ]);
