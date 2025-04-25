@@ -6,21 +6,9 @@
     class IndexController {
         public function __invoke() {
 
-            $pesquisar = isset($_GET['pesquisar']) ? $_GET['pesquisar'] : null;
-            $notas = Nota::all($pesquisar);
+            $notas = Nota::all(request()->get('pesquisar'));
 
-            // if(isset($_GET['id'])) {
-            //     $id = $_GET['id'];
-            // } else {
-            //     $id = $notas[0]->id;
-            // }
-
-            $id = isset($_GET['id']) ? $_GET['id'] : (sizeof($notas) > 0 ? $notas[0]->id : null);
-
-            $filtro = array_filter($notas, fn($n) => $n->id == $id);
-            $notaSelecionada = array_pop($filtro);
-
-            if(!$notaSelecionada) {
+            if(! $notaSelecionada = $this->getNotaSelecionada($notas)) {
                 return view('notas/nao-encontrada');
             }
 
@@ -28,6 +16,13 @@
                 'notas' => $notas,
                 'notaSelecionada' => $notaSelecionada
             ]);
+        }
+
+        private function getNotaSelecionada($notas) {
+            $id = request()->get('id', (sizeof($notas) > 0 ? $notas[0]->id : null));
+
+            $filtro = array_filter($notas, fn($n) => $n->id == $id);
+            return array_pop($filtro);
         }
     }
 

@@ -7,7 +7,7 @@
             name="pesquisar" 
             class="grow" 
             placeholder="Pesquisar notas..." 
-            value="<?=isset($_GET['pesquisar']) ? $_GET['pesquisar'] : ''?>"
+            value="<?=request()->get('pesquisar', '')?>"
             />
 
         <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
