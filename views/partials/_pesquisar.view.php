@@ -2,7 +2,13 @@
     <form action="/notas" class="w-full">
         <label class="input w-full">
 
-        <input type="text" name="pesquisar" class="grow" placeholder="Pesquisar notas..." />
+        <input 
+            type="text" 
+            name="pesquisar" 
+            class="grow" 
+            placeholder="Pesquisar notas..." 
+            value="<?=isset($_GET['pesquisar']) ? $_GET['pesquisar'] : ''?>"
+            />
 
         <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <g

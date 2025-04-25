@@ -1,12 +1,13 @@
 <?php
     namespace App\Controllers\Notas;
 
-use App\Models\Nota;
+    use App\Models\Nota;
 
     class IndexController {
         public function __invoke() {
 
-            $notas = Nota::all();
+            $pesquisar = isset($_GET['pesquisar']) ? $_GET['pesquisar'] : null;
+            $notas = Nota::all($pesquisar);
 
             // if(isset($_GET['id'])) {
             //     $id = $_GET['id'];
@@ -14,10 +15,14 @@ use App\Models\Nota;
             //     $id = $notas[0]->id;
             // }
 
-            $id = isset($_GET['id']) ? $_GET['id'] : $notas[0]->id;
+            $id = isset($_GET['id']) ? $_GET['id'] : (sizeof($notas) > 0 ? $notas[0]->id : null);
 
             $filtro = array_filter($notas, fn($n) => $n->id == $id);
             $notaSelecionada = array_pop($filtro);
+
+            if(!$notaSelecionada) {
+                return view('notas/nao-encontrada');
+            }
 
             return view('notas', [
                 'notas' => $notas,
