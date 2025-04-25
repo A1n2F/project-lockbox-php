@@ -27,6 +27,7 @@ use App\Middlewares\GuestMiddleware;
     ->post('/notas/criar', [Notas\CriarController::class, 'store'], AuthMiddleware::class)
 
     ->put('/nota', Notas\AtualizarController::class, AuthMiddleware::class)
+    ->delete('/nota', Notas\DeleteController::class, AuthMiddleware::class)
 
 
     ->run();

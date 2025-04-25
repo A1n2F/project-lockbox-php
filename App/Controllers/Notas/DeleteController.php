@@ -5,11 +5,9 @@
 use Core\Database;
 use Core\Validacao;
 
-    class AtualizarController {
+    class DeleteController {
         public function __invoke() {
             $validacao = Validacao::validar([
-                'titulo' => ['required', 'min:3', 'max:255'],
-                'nota' => ['required'],
                 'id' => ['required']
             ], request()->all());
 
@@ -17,13 +15,9 @@ use Core\Validacao;
                 return redirect('/notas?id='. request()->post('id'));
             }
 
-            Nota::update(
-                request()->post('id'),
-                request()->post('titulo'),
-                request()->post('nota'),
-            );
+            Nota::delete(request()->post('id'));
 
-            flash()->push('mensagem', 'Registro atualizado com sucesso!');
+            flash()->push('mensagem', 'Registro deletado com sucesso!');
 
             return redirect('notas');
         }

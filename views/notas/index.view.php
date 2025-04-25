@@ -13,19 +13,19 @@
 
 </div>
 
-<div class="bg-base-200 rounded-r-box w-full p-10 flex flex-col space-y-6">
+<div class="bg-base-200 rounded-r-box w-full px-10 py-4 flex flex-col space-y-6">
     <form action="/nota" method="POST" id="form-atualizacao">
         <input type="hidden" name="__method" value="PUT" />
         <input type="hidden" name="id" value="<?=$notaSelecionada->id?>" />
 
         <label class="form-control w-full">
-            <div>
+            <div class="mb-2">
                 <span class="label-text">Título</span>
             </div>
             <input 
                 name="titulo"
                 type="text" 
-                class="input input-bordered w-full"
+                class="input input-bordered w-full mb-6"
                 placeholder="Type here" 
                 value="<?=$notaSelecionada->titulo?>"
             />
@@ -36,10 +36,10 @@
         </label>
 
         <label class="form-control">
-            <div>
+            <div class="mb-2">
                 <span class="label-text">Sua nota</span>
             </div>
-            <textarea name="nota" class="textarea textarea-bordered h-24 w-full" placeholder="Bio"><?=$notaSelecionada->nota?></textarea>
+            <textarea name="nota" class="textarea textarea-bordered h-24 w-full" placeholder="Escreva aqui..."><?=$notaSelecionada->nota?></textarea>
             
             <?php if(isset($validacoes['nota'])) : ?>
                 <div class="label text-sm text-error"><?=$validacoes['nota'][0]?></div>
@@ -48,7 +48,14 @@
     </form>
 
     <div class="flex items-center justify-between">
-        <button class="btn btn-error">Deletar</button>
+        
+        <form action="/nota" method="POST">
+            <input type="hidden" name="__method" value="DELETE" />
+            <input type="hidden" name="id" value="<?=$notaSelecionada->id?>" />
+
+            <button class="btn btn-error" type="submit">Deletar</button>
+        </form>
+        
         <button class="btn btn-primary" type="submit" form="form-atualizacao">Atualizar</button>
     </div>
 </div>
