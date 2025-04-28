@@ -6,8 +6,8 @@
         ],
 
         'security' => [
-            'first_key' => 'wKC0RS+eTgbGDv2hFcToawwJiAymsRifQjULyCiSs4U=',
-            'second_key' => 'yQ69e2+qNBAZ3Me6I9YGBOUnXrZKkhDeihQGcJpKbuRcY7FKUpOi2lSwh/+ftpwSskOuBHAO0rV70SCdsYxcWA=='
+            'first_key' => env('ENCRYPT_FIRST_KEY', base64_encode('maria')), 
+            'second_key' => env('ENCRYPT_SECOND_KEY', base64_decode('maria123'))
         ]
     ];
 ?>
