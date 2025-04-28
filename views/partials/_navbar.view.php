@@ -8,7 +8,7 @@
             <?php if(session()->get('mostrar')): ?>        
                 <a href="/esconder">Esconder</a>
             <?php else: ?>
-                <a href="/mostrar">Visualizar</a>
+                <a href="/confirmar">Visualizar</a>
             <?php endif; ?>
         </li>
         <li>
