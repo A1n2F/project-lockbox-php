@@ -1,0 +1,13 @@
+{
+    "name": "usuario/lockbox",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "App\\": "app/"
+        },
+        "files": [
+            "./Core/functions.php"
+        ]
+    }
+}
