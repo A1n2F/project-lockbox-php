@@ -11,6 +11,15 @@
         public $data_criacao;
         public $data_atualizacao;
 
+        public function nota() {
+            if(session()->get('mostrar')) {
+                return $this->nota;
+            }
+
+            return str_repeat('*', rand(10,100));
+            
+        }
+
         public static function all($pesquisar = null) {
             $db = new Database(config('database'));
             
@@ -23,17 +32,23 @@
 
         public static function update($id, $titulo, $nota) {
             $db = new Database(config('database'));
+
+            $set = "titulo = :titulo";
+            if($nota) {
+                $set .= ", nota = :nota";
+            }
+
             $db->query(
                 query: "UPDATE notas 
                 SET 
-                titulo = :titulo, nota = :nota
+                $set
                 WHERE
                 id = :id",
-                params: [
+                params: array_merge([
                     'id' => $id,
                     'titulo' => $titulo,
                     'nota' => $nota
-                ]
+                ], $nota ? [ 'nota' => $nota ] : [])
             );
         }
 
